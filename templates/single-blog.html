@@ -1,0 +1,36 @@
+{% extends 'bases/base.html' %}
+
+{% block content %}
+
+
+        <p><img src="/media/{{ pole.avatar }}"></p>
+    <p><img src="/media/{{ pole.avatar2 }}"></p>
+            <p><img src="/media/{{ pole.avatar3 }}"></p>
+    <div class="pole-entry">
+        <p>by {{ object.author }} | {{ object.date }}</p>
+        <p>{{ object.body }} </p>
+        <p>{{ object.number }} </p>
+        <p>{{ object.email }} </p>
+
+
+
+
+        {% for x in object.images.all %}
+            <img src="{{x.image.url}}" alt="" height="700">
+        {% endfor %}
+        <button class="btn"><a href="{% url 'rezerv' %}">Reserved</a> </button>
+
+
+    </div>
+
+    {% if object.status %}
+
+        <p><a href="{% url 'pole_edit' object.pk %}">Edit</a> |
+            <a href="{% url 'pole_delete' object.pk %}">Delete</a></p>
+    {% else %}
+
+
+
+        <p>Back to <a href="{% url 'pole_list' %}">Добавить</a>.</p>
+    {% endif %}
+{% endblock content %}

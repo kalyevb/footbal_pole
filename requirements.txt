@@ -1,0 +1,4 @@
+django==2.2.8
+pillow
+social-auth-app-django==2.1.0
+django-crispy-forms

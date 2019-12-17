@@ -1,0 +1,16 @@
+{% extends 'bases/base.html' %}
+
+{% load crispy_forms_tags %}
+{% block title %} Добавьте поле {% endblock %}
+
+{% block content %}
+<h1> Добавьте поле</h1>
+    <div style="display: flex; justify-content: center;">
+<form method="post" enctype="multipart/form-data">
+
+  {{ form|crispy}}
+    {% csrf_token %}
+  <p><input type="submit"> <a href="{% url 'blog' %}" ></a></p>
+</form>
+    </div>
+{% endblock %}
